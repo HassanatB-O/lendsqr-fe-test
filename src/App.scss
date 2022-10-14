@@ -5,7 +5,7 @@
 $displayFlex: flex;
 $marginAuto: auto;
 $transform-text: uppercase;
-$size: 1.3rem;
+$size: 1rem;
 $cursor: pointer;
 $fullwidth: 100%;
 $middle: middle;
@@ -24,7 +24,7 @@ $middle: middle;
 h1{
     color: color.$colorblue;
     font-weight: 700;
-    font-size: calc($size * 3);
+    font-size: calc($size * 2);
     margin: .3em 0;
 }
 .Home{
@@ -49,9 +49,9 @@ h1{
     height: 600px;
 }
 .info{
-    font-size: calc($size * 1.2);
+    font-size: $size;
     color: color.$colorgrey;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 input:focus{
     outline: none;
@@ -66,7 +66,7 @@ input[type=email], input[type=password]{
 }
 ::placeholder{
     color: color.$colorgrey;
-    font-size: $size ;
+    font-size: $size / 2 ;
     opacity: .7;
 }
 h3{
@@ -78,10 +78,10 @@ h3{
 .log-in-btn{
     background-color: color.$colorgreen;
     width: 100%;
-    padding: calc($size / 1.2);
+    padding: $size;
     border: none;
     text-transform: $transform-text;
-    font-size: calc($size * 1.2);
+    font-size: $size;
     border-radius: calc($size / 2);
     color: #FFFFFF;
     cursor: $cursor;
@@ -98,14 +98,14 @@ nav{
 .search-btn{
     background-color: #39CDCC;
     border: none;
-    padding: $size;
+    padding: 10px;
     border-radius: 0 8px 8px 0;
     vertical-align: $middle;
     cursor: $cursor;
 }
 .search-bar{
     border: 2px solid rgba(84, 95, 125, 0.15);
-    padding: $size;
+    padding: 10px;
     border-radius: 5px 0  0 5px;
     width: 350px;
     vertical-align: $middle;
@@ -113,7 +113,7 @@ nav{
 }
 nav p{
     color: color.$colorblue;
-    font-size: calc($size * 1.2);
+    font-size: 12px;
 }
 .nav--end{
     display: $displayFlex;
@@ -153,7 +153,7 @@ nav p{
         margin-bottom: 2em;
     }
     h1{
-        font-size: calc($size * 2);
+        font-size: $size;
     }
     .sign-in{
         grid-template-columns: 1fr;
