@@ -27,7 +27,6 @@ $size: 1rem;
     border-radius: calc($size / 2);
     color: color.$colorred;
     text-transform: uppercase;
-    font-size: $size;
     letter-spacing: 1px;
 }
 .black-btn:hover, .active-btn:hover{
@@ -42,7 +41,6 @@ $size: 1rem;
     font-weight: 600;
     border-radius: calc($size / 2);
     text-transform: uppercase;
-    font-size: $size;
     letter-spacing: 1px;
     margin-left: 20px;
 }
@@ -147,9 +145,6 @@ aside p{
     .name--id, .bank--details{
         border-left: none;
         border-right: none;
-    }
-    .black-btn, .active-btn{
-        font-size: $size;
     }
     .buttons{
         display: flex;
