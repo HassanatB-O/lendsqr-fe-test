@@ -183,8 +183,8 @@ export default function Dashboard() {
                     <td>
                       <p className='status--td pending'>Pending</p>
                       </td>
-                    <td className='ellipsis-div'>
-                      <img src="Image/ellipsis.svg" alt="" className='ellipsis' onClick={() =>{ handleOptions(); setOptions(!options) }}/>
+                    <td className='ellipsis-div' onClick={() =>{ handleOptions(); setOptions(!options) }}>
+                      <img src="Image/ellipsis.svg" alt="" className='ellipsis'/>
                     </td>
                     {/* This UL contains the hidden options that show onclick of the ellipsis */}
                       <ul className={options? 'hidden': 'hidden--options'}>
