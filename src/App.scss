@@ -6,6 +6,7 @@ $displayFlex: flex;
 $marginAuto: auto;
 $transform-text: uppercase;
 $size: 1rem;
+$sizetwo: 10px;
 $cursor: pointer;
 $fullwidth: 100%;
 $middle: middle;
@@ -24,7 +25,7 @@ $middle: middle;
 h1{
     color: color.$colorblue;
     font-weight: 700;
-    font-size: calc($size * 2);
+    font-size: calc($size * 2.5);
     margin: .3em 0;
 }
 .Home{
@@ -59,14 +60,14 @@ input:focus{
 input[type=email], input[type=password]{
     border: 2px solid rgba(84, 95, 125, 0.15);
     padding: $size;
-    border-radius: 5px;
+    border-radius: $sizetwo / 2;
     width: $fullwidth;
     margin: $size 0;
     cursor: $cursor;
 }
 ::placeholder{
     color: color.$colorgrey;
-    font-size: $size / 2 ;
+    font-size: $sizetwo;
     opacity: .7;
 }
 h3{
@@ -96,16 +97,16 @@ nav{
     box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
 }
 .search-btn{
-    background-color: #39CDCC;
+    background-color: color.$colorgreen;
     border: none;
-    padding: 10px;
+    padding: $sizetwo;
     border-radius: 0 8px 8px 0;
     vertical-align: $middle;
     cursor: $cursor;
 }
 .search-bar{
     border: 2px solid rgba(84, 95, 125, 0.15);
-    padding: 10px;
+    padding: $sizetwo;
     border-radius: 5px 0  0 5px;
     width: 350px;
     vertical-align: $middle;
@@ -129,7 +130,6 @@ nav p{
 .hamburger-div{
     display: none;
     cursor: pointer;
-    transition: 0.3s;
 }
 // Nav Bar
 
