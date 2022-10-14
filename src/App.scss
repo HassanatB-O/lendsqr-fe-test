@@ -114,7 +114,7 @@ nav{
 }
 nav p{
     color: color.$colorblue;
-    font-size: 12px;
+    font-size: $size;
 }
 .nav--end{
     display: $displayFlex;
