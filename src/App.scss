@@ -61,7 +61,7 @@ input:focus{
 input[type=email], input[type=password]{
     border: 2px solid rgba(84, 95, 125, 0.15);
     padding: $size;
-    border-radius: $sizetwo / 2;
+    border-radius: calc($sizetwo / 2);
     width: $fullwidth;
     margin: $size 0;
     cursor: $cursor;
