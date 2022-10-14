@@ -16,7 +16,7 @@ $size: 1rem;
 }
 .user--details{
     display: grid;
-    padding: calc($size * 2);
+    padding: calc($size * 3);
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
 }
@@ -116,7 +116,6 @@ li{
     justify-content: space-between;
     align-items: center;
     padding: $size 0;
-    float: right;
 }
 a{
     text-decoration: none;
@@ -223,7 +222,7 @@ a:active, a:focus{
     }
     .search-div-mobile .search-bar{
         width: 100%;
-        margin: 1em 0;
+        margin: $size 0;
         border: 1px solid color.$colorgreen;
     }
     .search-div-mobile .search-btn{
@@ -260,5 +259,8 @@ a:active, a:focus{
     }
     .pagination{
         flex-direction: column;
+        margin: $size 0;
+        align-items: start;
+        margin-top: 1.5em;
     }
 }
