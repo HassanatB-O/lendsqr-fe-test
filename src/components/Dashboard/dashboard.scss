@@ -29,7 +29,7 @@ $size: 1rem;
 }
 .box p{
     color: color.$colorgrey;
-    font-size: calc($size * 1.1);
+    font-size: $size;
     margin: calc($size / 2) 0;
     text-transform: uppercase;
 }
@@ -45,7 +45,7 @@ $size: 1rem;
 h2{
     color: color.$colorblue;
     font-weight: 600;
-    font-size: calc($size * 2);
+    font-size: calc($size * 1.5);
     margin: $size 0;
 }
 .pink-filter{
