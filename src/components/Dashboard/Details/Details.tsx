@@ -70,7 +70,7 @@ export default function Details(){
                                 </div>
                             </div>
                             <div className='section-slct'>
-                                <p>General Information</p>
+                                <p style={{borderBottom:  '2px solid #39CDCC', color: "#39CDCC"}}>General Information</p>
                                 <p>Documents</p>
                                 <p>Bank Details</p>
                                 <p>Loans</p>
