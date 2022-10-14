@@ -102,7 +102,7 @@ li{
     cursor: pointer;
 }
 .page-list li{
-    padding: $size/ 2;
+    padding: calc($size/ 2);
     cursor: pointer;
     border: 1px solid transparent;
 }
@@ -177,11 +177,11 @@ a:active, a:focus{
 }
 .active{
     border: 1px solid color.$colorgrey;
-    padding: $size / 2;
+    padding: calc($size / 2);
 }
 .status--td{
     border-radius: 100px;
-    padding: $size / 2;
+    padding: calc($size / 2);
     cursor: pointer;
     text-align: center;
 }
