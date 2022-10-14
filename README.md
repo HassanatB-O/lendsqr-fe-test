@@ -13,3 +13,16 @@ Users should be able to:
 - Change the current page by clicking on the page number or the left and right arrown buttons
 - See the details of each user by clicking on the ellipsis and clicking "View Details"
 - Toggle the ellipsis on and off
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- [React with Typescript](https://reactjs.org/) - JS library
+- [SCSS](https://sass-lang.com/) - CSS Preprocessor
+
+Website - https://hassanatbusari-lendsqr-fe-test.herokuapp.com/
