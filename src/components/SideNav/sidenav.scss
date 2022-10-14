@@ -24,7 +24,7 @@ $size: 1rem;
     color: color.$colorgrey;
     font-weight: 600;
     margin: $size 0;
-    margin-left: $size * 2;
+    margin-left: calc($size * 2);
     font-size: 18px;
 }
 .side--div:hover{
@@ -62,7 +62,7 @@ $size: 1rem;
         position: absolute;
         right: 0%;
         z-index: 50;
-        width: 70%;
+        width: 50%;
         transition: 0.3s;
     }
     .side--nav img{
