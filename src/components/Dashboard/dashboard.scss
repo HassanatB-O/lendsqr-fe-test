@@ -1,215 +1,268 @@
-import { Link } from 'react-router-dom'
-import React, { useState, useEffect, useCallback } from 'react'
-import './dashboard.scss'
-import Pagination from './Pagination'
-import Numbers from './userNumbers'
-import SideNav from '../SideNav/SideNav'
-import SideNavMobile from '../SideNav/sidenavMobile'
-import Navbar from '../Navbar'
-import Filter from './Filter/filter'
-import { User } from '../models/user'
+@use '/src/components/color';
 
+$size: 1rem;
 
-export default function Dashboard() {
-  // State for the API data
-  const[userData, setUserData] = useState<User[]>([])
-  const[loading, setLoading] = useState(false)
-  // State for the Pagination
-  const[currentPage, setCurrentPage] = useState(1)
-  // State for the hidden ellipsis options
-  // State for the filter div
-  const [filter, setFilter] = useState(false)
-  const[usersPerPage] = useState(10)
-  // State for the input search
-  const [searchInput, setSearchInput] = useState("")
-  // State for the side navigation
-  
+.dashboard{
+    display: grid;
+    grid-template-columns: 320px 2fr;
+    background: rgba(0, 0, 0, 0.04);
+    font-family: 'Work Sans', sans-serif;
+}
+.side{
+    color: black;
+}
+.dashboard--details{
+    padding: calc($size * 2);
+}
+.user--details{
+    display: grid;
+    padding: calc($size * 3);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+.box{
+    background: #FFFFFF;
+    padding: $size;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+}
+.box p{
+    color: color.$colorgrey;
+    font-size: $size;
+    margin: calc($size / 2) 0;
+    text-transform: uppercase;
+}
+.img-div{
+    display: flex;
+    padding: $size;
+    border-radius: 50%;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+}
+h2{
+    color: color.$colorblue;
+    font-weight: 600;
+    font-size: calc($size * 1.5);
+    margin: $size 0;
+    margin-left: 2rem;
+}
+.pink-filter{
+    filter: invert(20%) sepia(73%) saturate(3732%) hue-rotate(280deg) brightness(107%) contrast(117%) !important;
+}
+.purple-filter{
+    filter: invert(17%) sepia(100%) saturate(7029%) hue-rotate(260deg) brightness(97%) contrast(110%) !important;
+}
+.orange-filter{
+    filter: invert(45%) sepia(64%) saturate(1977%) hue-rotate(335deg) brightness(100%) contrast(93%) !important;
+}
+.red-filter{
+    filter: invert(36%) sepia(99%) saturate(3932%) hue-rotate(328deg) brightness(108%) contrast(101%) !important;
+}
+.table--details{
+    padding: calc($size * 1.5) calc($size * 3);
+}
+.table{
+    background-color: #FFFFFF;
+    color: color.$colorgrey;
+    padding: calc($size * 2);
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+}
+button:focus{
+    outline: none;
+}
+.table--header{
+    display: flex;
+    color: color.$colorgrey;
+    text-transform: uppercase;
+    font-size: calc($size * 1.1);
+    font-weight: 600;
+    cursor: auto;
+}
+td{
+    padding: $size 8px;
+    text-transform: capitalize;
+    gap: 1rem;
+    font-size: $size;
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+}
+.ellipsis-div{
+    position: relative;
+}
+.ellipsis{
+    vertical-align: middle;
+    cursor: pointer;
+}
+li{
+    list-style-type: none;
+    cursor: pointer;
+}
+.page-list li{
+    padding: $size/ 2;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.page-list li:focus{
+    outline: none;
+}
+.page-list li:hover{
+    border: 1px solid color.$colorgrey;
+}
+.page-list{    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $size 0;
+}
+a{
+    text-decoration: none;
+    color: color.$colorgrey;
+    opacity: .7;
+}
+a:active, a:focus{
+    opacity: 1;
+}
+.hidden--options{
+    background: #FFFFFF;
+    padding: $size;
+    width: 180px;
+    border: 1px solid rgba(84, 95, 125, 0.04);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    display: none;
+}
+.view--details:hover{
+    font-weight: 600;
+    color: color.$colorgreen;
+}
+.show{
+    display: block;
+}
+.hidden{
+    display: none !important;
+}
+.none{
+    display: none;
+}
+.filter{
+    margin-left: 1rem ;
+    cursor: pointer;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+.drop--down{
+    margin: 0 5px;
+    background: rgba(33, 63, 125, 0.1);
+    border-radius: 4px;
+    color: color.$colorblue;
+    cursor: pointer;
+    padding: calc($size / 2);
+}
+.arrow-btn img{
+    width: 15px;
+    height: 15px;
+}
+.arrow-btn{
+    padding: $size / 2;
+    height: fit-content;
+    cursor: pointer;
+}
+.active{
+    border: 1px solid color.$colorgrey;
+    padding: $size / 2;
+}
+.status--td{
+    border-radius: 100px;
+    padding: $size / 2;
+    cursor: pointer;
+    text-align: center;
+}
+.pending{
+    background: rgba(233, 178, 0, 0.1);
+    color: color.$coloryellow;
+}
+.mobile-search{
+    padding: 0 3rem;
+    display: none;
+}
+#mobile-sidenav{
+    display: none;
+}
 
-  // Fetching data from the API
-  useEffect(() =>{
-    fetch("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
-    .then(res => res.json())
-    .then(data => {
-      setUserData(data)
-      setLoading(false)})
-  }, [])
-
-
-  // This specifies the last index i.e the next page will know the index of the last user
-  const indexOfLastUser = currentPage * usersPerPage
-  // This specifies the first index i.e the next page will know the index of the first user
-  const indexOfFirstUser = indexOfLastUser - usersPerPage
-  // This specifies the number of posts on a page
-  const currentPost = userData.slice(indexOfFirstUser, indexOfLastUser)
-  // This gets the number of users 
-  const totalUsers = userData.length
-  // Setting state for the pagination
-  const paginate = (pageNumbers: number)=> setCurrentPage(pageNumbers)
-  
-  //The function that handles the toggle of the filter component
-  const handleFilter =() =>{
-    setFilter(prev => !prev)
-  }
-  
-  //The function that handles the changing state of the search input
-  const handleChange = (e: any) =>{
-    e.preventDefault()
-    setSearchInput(e.target.value)
-  }
-  
-  //The function that handles the change of pages to the next on the Pagination component
-  const handleNext= () =>{
-    setCurrentPage(currentPage + 1)
-  }
-  
-  //The function that handles the change of pages to the previous on the Pagination component
-  const handlePrev= () =>{
-    setCurrentPage(currentPage - 1)
-  }   
-
-  // State for the mobile side navigation
-  const[isOpen, setIsOpen] = useState(false)  
-
-  const[options, setOptions] = useState(false)
-
-  // This function handles showing the hidden options onclick of the ellipsis
-  const handleOptions = () =>{
-    let ellipsis = document.querySelectorAll('.ellipsis')
-    let elements = document.querySelectorAll<HTMLElement>('.hidden--options')
-    for(let i = 0; i < ellipsis.length; i++){
-      ellipsis[i].addEventListener('click', ()=>{
-        for(let j = 0; j < elements.length; j++){
-          // If the ellipsis and hidden-options have the same index then show the hidden options
-          if(i === j){
-            elements[j].style.display = 'block'
-            elements[j].style.position = 'absolute'
-            elements[j].style.marginLeft = '-150px'
-            elements[j].style.marginTop = '50px'
-            elements[j].style.zIndex = '49'
-          }
-          // Else show nothing
-          else{
-            elements[j].style.display = 'none'
-          }
-        }
-      })
+@media screen and (min-width: 801px) and (max-width: 1200px){   
+    .search-div .search-bar{
+        width: 200px;
     }
-  }
-  
-  
-  if(loading){
-    return <h2>Loading...</h2>
-  }
-  return (
-    <div>
-      <Navbar searchInput={searchInput} handleChange={handleChange} handleNav={() => setIsOpen(prev => !prev)}/>
-      <section className='dashboard'>
-        {isOpen && <SideNavMobile/>}
-        <SideNav/>
-        <main className='dashboard--details'>
-          <h2>Users</h2>
-          <section className='mobile-search'>
-            <div className="search-div search-div-mobile">
-                  <input type="text" 
-                  placeholder="Search for anything..." 
-                  className="search-bar"
-                  onChange={handleChange}
-                  value={searchInput}
-                  />
-                  <button className="search-btn">
-                      <img src="/Image/search.svg" alt="" />
-                  </button>
-              </div>
-          </section>
-          <Numbers totalUsers={totalUsers}/>
-          <section className='table--details'>
-            <div className='table'>
-            <table>
-              <tr className='first-row'>
-                <th>
-                  <div className='table--header'>
-                    <p>Organization</p>
-                    <img src="Image/filter.svg" alt="" className='filter' onClick={handleFilter}/>
-                  </div>
-                </th>
-                <th>
-                  <div className='table--header'>
-                    <p>username</p>
-                    <img src="Image/filter.svg" alt="" className='filter' onClick={handleFilter}/>
-                  </div>
-                </th>
-                <th>
-                  <div className="table--header">
-                    <p>email</p>
-                    <img src="Image/filter.svg" alt="" className='filter' onClick={handleFilter}/>
-                  </div>
-                </th>
-                <th>
-                  <div className="table--header">
-                    <p>phone number</p>
-                    <img src="Image/filter.svg" alt="" className='filter' onClick={handleFilter}/>
-                  </div>
-                </th>
-                <th>
-                  <div className='table--header'>
-                    <p>date joined</p>
-                    <img src="Image/filter.svg" alt="" className='filter' onClick={handleFilter} />
-                  </div>
-                </th>
-                <th>
-                  <div className='table--header'>
-                    <p>status</p>
-                    <img src="Image/filter.svg" alt="" className='filter' onClick={handleFilter} />
-                  </div>
-                </th>
-              </tr>
-              <Filter filter={filter}/>
-              {/* Filtering the data from the API according to the search input and current post */}
-              {currentPost.filter(user =>{
-                if(searchInput === ""){
-                  return user
-                }
-                else if(user?.email?.toLowerCase().includes(searchInput.toLowerCase())){
-                  return user
-                }
-                {/* Mapping the data from the API according to the filter */}
-              }).map((item) =>(
-                <tr key={item.id}>
-                    <td>{item.orgName}</td>
-                    <td>{item.userName}</td>
-                    <td>{item.email}</td>
-                    <td>{item.phoneNumber}</td>
-                    <td>{item.createdAt}</td>
-                    <td>
-                      <p className='status--td pending'>Pending</p>
-                      </td>
-                    <td className='ellipsis-div'>
-                      <img src="Image/ellipsis.svg" alt="" className='ellipsis' onClick={() =>{ handleOptions(); setOptions(!options) }}/>
-                    </td>
-                    {/* This UL contains the hidden options that show onclick of the ellipsis */}
-                      <ul className={options? 'hidden': 'hidden--options'}>
-                        {/* This link changes the pages to show the detail of each user */}
-                      <Link to ={`/${item.id}`}>
-                        <li className='view--details'>
-                        <img src="Image/view.svg" alt="" className='icon' style={{"width": "20px", "verticalAlign": "middle", marginRight: "8px"}}/>
-                        View Details</li>
-                        </Link>
-                      <li>
-                        <img src="Image/SideNav/karma.svg" alt="" className='icon' style={{"width": "20px", "verticalAlign": "middle", marginRight: "8px"}} />
-                        Blacklist User
-                      </li>
-                      <li>
-                        <img src="Image/SideNav/whitelist.svg" alt="" className='icon' style={{"width": "20px", "verticalAlign": "middle", marginRight: "8px"}} />
-                        Activate User</li>
-                    </ul>
-                  </tr>
-              ))}
-            </table>
-              <Pagination usersPerPage={usersPerPage} totalUsers={totalUsers} paginate={paginate} handleNext={handleNext} currentPage={currentPage} handlePrev={handlePrev}/>
-              </div>
-          </section>
-        </main>
-      </section>
-    </div>
-  )
+}
+
+@media screen and (max-width: 800px){
+    .dashboard{
+        grid-template-columns: minmax(0, 100%);
+    }
+    #mobile-sidenav{
+        display: block;
+        transition: 0.3s ease-in-out;
+    }
+    #desktop-sidenav{
+        display: none;
+    }
+    .mobile-search, .search-div-mobile{
+        display: block !important;
+    }
+    .mobile-search{
+        padding: 0 1rem;
+    }
+    .search-div-mobile .search-bar{
+        width: 100%;
+        margin: $size 0;
+        border: 1px solid color.$colorgreen;
+    }
+    .search-div-mobile .search-btn{
+        display: none;
+    }
+    .user--details{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: $size;
+        text-align: center;
+    }
+    h2{
+        margin-left: 0;
+    }
+    .user--details h2{
+        font-size: calc($size * 1.2) ;
+    }
+    .user--details p{
+        font-size: $size;
+    }
+    .user--details .img-div{
+        margin: auto;
+    }
+    .box{
+        padding: calc($size * 1.2);
+    }
+    .table{
+        overflow-x: scroll;
+    }
+    td{
+        font-size: $size;
+    }
+    .dashboard--details{
+        padding: $size;
+    }
+    .table--details{
+        padding: $size;
+    }
+    .pagination{
+        flex-direction: column;
+        margin: $size 0;
+        align-items: start;
+        margin-top: 1.5em;
+    }
 }
