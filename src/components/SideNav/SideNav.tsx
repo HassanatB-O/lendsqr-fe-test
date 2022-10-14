@@ -21,7 +21,7 @@ export default function SideNav(){
                 <p>dashboard</p>
            </aside>
            <p className='section--divider'>CUSTOMERS</p>
-           <aside className='side--div' style={{color: '#213F7D', fontWeight: 600, borderLeft: '6px solid #39CDCC', opacity: 1, backgroundColor: 'rgba(57, 205, 204, 0.06)'>
+           <aside className='side--div' style={{color: '#213F7D', fontWeight: 600, borderLeft: '6px solid #39CDCC', opacity: 1, backgroundColor: 'rgba(57, 205, 204, 0.06)'}}>
                 <div>
                     <img src='Image/SideNav/users.svg' className='icon'/>
                 </div>
