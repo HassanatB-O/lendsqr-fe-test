@@ -24,7 +24,7 @@ $size: 1rem;
     color: color.$colorgrey;
     font-weight: 600;
     margin: $size 0;
-    margin-left: $size * 3;
+    margin-left: $size * 2;
     font-size: 18px;
 }
 .side--div:hover{
@@ -43,7 +43,7 @@ $size: 1rem;
 }
 .side--div p{
     color: color.$colorblue;
-    font-size: calc($size * 1.5);
+    font-size: $size;
     text-transform: capitalize;
     margin-left: $size;
     opacity: .6;
@@ -64,9 +64,6 @@ $size: 1rem;
         z-index: 50;
         width: 70%;
         transition: 0.3s;
-    }
-    .side--div p{
-        font-size: calc($size * 1.2);
     }
     .side--nav img{
         width: 20px;
