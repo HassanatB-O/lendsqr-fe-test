@@ -8,7 +8,7 @@ $size: 1rem;
     background-color: transparent;
     border: none;
     color: color.$colorblue;
-    font-size: $size * 1.2;
+    font-size: $size;
     letter-spacing: 2px;
     border: 1px solid transparent;
 }
@@ -27,7 +27,7 @@ $size: 1rem;
     border-radius: calc($size / 2);
     color: color.$colorred;
     text-transform: uppercase;
-    font-size: $size * 1.2;
+    font-size: $size;
     letter-spacing: 1px;
 }
 .black-btn:hover, .active-btn:hover{
@@ -42,7 +42,7 @@ $size: 1rem;
     font-weight: 600;
     border-radius: calc($size / 2);
     text-transform: uppercase;
-    font-size: $size * 1.2;
+    font-size: $size;
     letter-spacing: 1px;
     margin-left: 20px;
 }
@@ -71,7 +71,7 @@ h4{
     display: flex;
     justify-content: space-between;
     margin-top: calc($size * 2);
-    font-size: calc($size * 1.2);
+    font-size: $size;
 }
 .section-slct p{
     cursor: pointer;
@@ -91,7 +91,7 @@ aside h3{
 }
 aside p{
     font-weight: 600;
-    font-size: calc($size * 1.2);
+    font-size: $size;
 }
 .grid{
     display: grid;
