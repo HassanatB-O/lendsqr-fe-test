@@ -30,6 +30,9 @@ $size: 1rem;
     margin: calc($size / 2) 0;
     text-transform: uppercase;
 }
+.box h2{
+    margin-left: 0;
+}
 .img-div{
     display: flex;
     padding: $size;
