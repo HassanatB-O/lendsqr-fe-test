@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import './dashboard.scss'
 import Pagination from './Pagination'
 import Numbers from './userNumbers'
@@ -57,7 +57,6 @@ export default function Dashboard() {
     setSearchInput(e.target.value)
   }
   
-  
   //The function that handles the change of pages to the next on the Pagination component
   const handleNext= () =>{
     setCurrentPage(currentPage + 1)
@@ -71,15 +70,22 @@ export default function Dashboard() {
   // State for the mobile side navigation
   const[isOpen, setIsOpen] = useState(false)  
 
+  // This function handles showing the hidden options onclick of the ellipsis
   const handleOptions = () =>{
     let ellipsis = document.querySelectorAll('.ellipsis')
     let elements = document.querySelectorAll<HTMLElement>('.hidden--options')
     for(let i = 0; i < ellipsis.length; i++){
       ellipsis[i].addEventListener('click', ()=>{
         for(let j = 0; j < elements.length; j++){
+          // If the ellipsis and hidden-options have the same index then show the hidden options
           if(i === j){
             elements[j].style.display = 'block'
+            elements[j].style.position = 'absolute'
+            elements[j].style.marginLeft = '-150px'
+            elements[j].style.marginTop = '50px'
+            elements[j].style.zIndex = '49'
           }
+          // Else show nothing
           else{
             elements[j].style.display = 'none'
           }
@@ -87,6 +93,10 @@ export default function Dashboard() {
       })
     }
   }
+  useEffect(() =>{
+    handleOptions()
+  }, [])
+
 
   if(loading){
     return <h2>Loading...</h2>
@@ -177,6 +187,7 @@ export default function Dashboard() {
                     <td className='ellipsis-div'>
                       <img src="Image/ellipsis.svg" alt="" className='ellipsis' onClick={handleOptions}/>
                     </td>
+                    {/* This UL contains the hidden options that show onclick of the ellipsis */}
                       <ul className='hidden--options'>
                         {/* This link changes the pages to show the detail of each user */}
                       <Link to ={`/${item.id}`}>
