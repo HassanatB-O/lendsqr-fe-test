@@ -1,6 +1,7 @@
 @use 'components/color';
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 $displayFlex: flex;
 $marginAuto: auto;
@@ -33,7 +34,7 @@ h1{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'AvenirNext LT Pro Regular', 'AvenirNext LT Pro Regular';
+    font-family: 'Roboto', sans-serif;
 }
 .container{
     padding: $size calc($size * 5);
@@ -90,6 +91,7 @@ h3{
 // Nav Bar
 nav{
     display: $displayFlex;
+    font-family: 'Roboto', sans-serif;
     justify-content: space-between;
     align-items: center !important;
     padding: $size calc($size * 2);
@@ -114,7 +116,6 @@ nav{
 }
 nav p{
     color: color.$colorblue;
-    font-size: $size;
 }
 .nav--end{
     display: $displayFlex;
