@@ -83,7 +83,6 @@ export default function Dashboard() {
           if(i === j){
             elements[j].style.display = 'block'
             elements[j].style.position = 'absolute'
-            elements[j].style.marginLeft = '-150px'
             elements[j].style.marginTop = '50px'
             elements[j].style.zIndex = '49'
           }
@@ -184,7 +183,7 @@ export default function Dashboard() {
                       <p className='status--td pending'>Pending</p>
                       </td>
                     <td className='ellipsis-div' onClick={() =>{ handleOptions(); setOptions(!options) }}>
-                      <img src="Image/ellipsis.svg" alt="" className='ellipsis'/>
+                      <img src="Image/ellipsis.svg" alt="" className='ellipsis' />
                     </td>
                     {/* This UL contains the hidden options that show onclick of the ellipsis */}
                       <ul className={options? 'hidden': 'hidden--options'}>
