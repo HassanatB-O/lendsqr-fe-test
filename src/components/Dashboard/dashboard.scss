@@ -78,7 +78,7 @@ button:focus{
     display: flex;
     color: color.$colorgrey;
     text-transform: uppercase;
-    font-size: calc($size * 1.2);
+    font-size: calc($size * 1.1);
     font-weight: 600;
     cursor: auto;
 }
@@ -86,7 +86,7 @@ td{
     padding: $size 8px;
     text-transform: capitalize;
     gap: 1rem;
-    font-size: calc($size * 1.15);
+    font-size: $size;
     border-bottom: 1px solid rgba(33, 63, 125, 0.1);
 }
 .ellipsis-div{
