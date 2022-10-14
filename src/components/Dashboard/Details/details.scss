@@ -97,7 +97,7 @@ aside p{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: calc($size * 1.5);
-    padding-bottom: $size * 2;
+    padding-bottom: calc($size * 2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 .profile{
