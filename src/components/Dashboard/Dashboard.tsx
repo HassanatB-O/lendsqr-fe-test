@@ -70,6 +70,8 @@ export default function Dashboard() {
   // State for the mobile side navigation
   const[isOpen, setIsOpen] = useState(false)  
 
+  const[options, setOptions] = useState(false)
+
   // This function handles showing the hidden options onclick of the ellipsis
   const handleOptions = () =>{
     let ellipsis = document.querySelectorAll('.ellipsis')
@@ -93,11 +95,8 @@ export default function Dashboard() {
       })
     }
   }
-  useEffect(() =>{
-    handleOptions()
-  }, [])
-
-
+  
+  
   if(loading){
     return <h2>Loading...</h2>
   }
@@ -185,10 +184,10 @@ export default function Dashboard() {
                       <p className='status--td pending'>Pending</p>
                       </td>
                     <td className='ellipsis-div'>
-                      <img src="Image/ellipsis.svg" alt="" className='ellipsis' onClick={handleOptions}/>
+                      <img src="Image/ellipsis.svg" alt="" className='ellipsis' onClick={() =>{ handleOptions(); setOptions(!options) }}/>
                     </td>
                     {/* This UL contains the hidden options that show onclick of the ellipsis */}
-                      <ul className='hidden--options'>
+                      <ul className={options? 'hidden': 'hidden--options'}>
                         {/* This link changes the pages to show the detail of each user */}
                       <Link to ={`/${item.id}`}>
                         <li className='view--details'>
