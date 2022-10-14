@@ -42,7 +42,7 @@ export default function Details(){
                     {/* This button links back to the users */}
                     <Link to="/dashboard">
                         <button className='back-btn'>
-                            <span style={{"marginRight": "10px", "fontSize": "2rem"}}>&larr;</span>
+                            <span style={{"marginRight": "10px"}}>&larr;</span>
                             Back to Users
                         </button>
                     </Link>
