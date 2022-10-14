@@ -15,7 +15,7 @@ $size: 1rem;
     display: $displayFlex;
     margin: calc($size / 2) 0;
     align-items: center;
-    padding: $size calc($size * 3);
+    padding: $size calc($size * 2);
     opacity: .7;
     cursor: pointer;
     border-left: 6px solid transparent;
