@@ -3,7 +3,7 @@
 $size: 1rem;
 
 .filter--options{
-    font-size: calc($size * 1.2);
+    font-size: $size;
     background: #FFFFFF;
     border: 1px solid rgba(84, 95, 125, 0.14);
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -22,21 +22,20 @@ select, .input{
 }
 ::placeholder{
     color: color.$colorgrey;
-    font-size: $size ;
-    font-size: calc($size * 1.2);
+    font-size: $size;
 }
 .reset-btn{
     padding: $size;
     width: 100px;
     border-radius: 8px;
-    font-size: calc($size * 1.2);
+    font-size: size;
     border: 1px solid #545F7D;
 }
 .filter-btn{
     padding: $size;
     width: 100px;
     border-radius: 8px;
-    font-size: calc($size * 1.2);
+    font-size: $size;
     border: none;
     background-color: color.$colorgreen;
     color: #FFFFFF;
